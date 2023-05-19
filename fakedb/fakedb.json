@@ -1,0 +1,68 @@
+ [
+      {
+        "picture": "https://cdn.vox-cdn.com/thumbor/lURh8u-1fQw3JtZMaY0ZjSskLfw=/0x0:1800x1800/1200x0/filters:focal(0x0:1800x1800):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/16208967/MARVEL_AVENGERS_ENDGAME_6_INCH_Figure_Assortment___Ant_Man__in_pck_.jpg",
+        "name": "ANT MAN",
+        "sellerName": "John Doe",
+        "sellerEmail": "johndoe@example.com",
+        "subcategory": "Avengers",
+        "price": 10,
+        "rating": 4,
+        "quantity": 5,
+        "description": "New Avengers: Endgame toys are pure spoilers for Hulk and Tony Stark - Polygon"
+      },
+      {
+        "picture": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2019%2F03%2Fmarvel-avengers-endgame-titan-hero-deluxe-hulk-6-inch-figure-in-pck.jpg",
+        "name": "HULK",
+        "sellerName": "Jane Smith",
+        "sellerEmail": "janesmith@example.com",
+        "subcategory": "Avengers",
+        "price": 15,
+        "rating": 5,
+        "quantity": 3,
+        "description": "Armored Hulk and cloaked Ronin featured in Avengers: Endgame toys "
+      },
+      {
+        "picture": "https://geekireland.com/wp-content/uploads/2016/06/Transformers-Combiners-Superion-Menasor.jpg",
+        "name": "Vintage Transformer",
+        "sellerName": "William Wilson",
+        "sellerEmail": "wilson@example.com",
+        "subcategory": "Transformers",
+        "price": 12,
+        "rating": 4.5,
+        "quantity": 8,
+        "description": "Top 5 Vintage Transformers Combiners | Geek Ireland"
+      },
+      {
+        "picture": "https://m.media-amazon.com/images/I/71XdWWBv-eL.jpg",
+        "name": "Transformers Bumblebee",
+        "sellerName": "William Wilson",
+        "sellerEmail": "wilson@example.com",
+        "subcategory": "Transformers",
+        "price": 18,
+        "rating": 3.5,
+        "quantity": 2,
+        "description": "Bumblebee Movie Toys, Power Charge Bumblebee Action Figure -  Lights and Sounds,"
+      },
+      {
+        "picture": "https://www.hasbro.com/common/productimages/en_US/7200AC1646EE43EC863187E40BA30695/ec00bb5042d17d9d6d3f5ac4a8f867af53d5f927.jpg",
+        "name": "Monopoly:Star Wars ",
+        "sellerName": "James Anderson",
+        "sellerEmail": "anderson@example.com",
+        "subcategory": "Star Wars",
+        "price": 20,
+        "rating": 4.2,
+        "quantity": 6,
+        "description": "Monopoly: Disney Star Wars Dark Side Edition Board Game for Families, Games for Kids, Star Wars Gift "
+      },
+      {
+        "picture": "https://www.toyark.com/wp-content/uploads/2023/05/Hot-Toys-Clone-Wars-Darth-Sidious-016.jpg",
+        "name": "Star Wars-The Toyark",
+        "sellerName": "James Anderson",
+        "sellerEmail": "anderson@example.com",
+        "subcategory": "Star Wars",
+        "price": 25,
+        "rating": 4.8,
+        "quantity": 10,
+        "description": "Toys Darth Sidious Figure Star Wars Sixth Scale Limited Collectible - Comic Concepts"
+      }
+    ]
