@@ -57,7 +57,6 @@ async function run() {
       res.send(result);
     });
 
-
     app.post("/MyToys", async (req, res) => {
       const newToy = req.body;
       console.log(newToy);
@@ -88,7 +87,6 @@ async function run() {
       res.send(result);
     });
 
-    
     // to get user email
     app.get("/myToys/:email", async (req, res) => {
       console.log(req.params.email);
@@ -98,7 +96,10 @@ async function run() {
       res.send(toys);
     });
 
-    /////////
+    // For My Toys
+
+   
+    
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
