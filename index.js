@@ -6,7 +6,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware
-app.use(cors());
+ app.use(cors());
+
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.zyio3kh.mongodb.net/?retryWrites=true&w=majority`;
@@ -57,6 +58,15 @@ async function run() {
       res.send(result);
     });
 
+        // to get user email
+        app.get("/MyToys/:email", async (req, res) => {
+          console.log(req.params.email);
+          const toys = await MyToysCollection.find({
+            sellerEmail: req.params.email,
+          }).toArray();
+          res.send(toys);
+        });
+
     app.post("/MyToys", async (req, res) => {
       const newToy = req.body;
       console.log(newToy);
@@ -87,14 +97,7 @@ async function run() {
       res.send(result);
     });
 
-    // to get user email
-    app.get("/myToys/:email", async (req, res) => {
-      console.log(req.params.email);
-      const toys = await MyToysCollection.find({
-        sellerEmail: req.params.email,
-      }).toArray();
-      res.send(toys);
-    });
+
 
     // For My Toys
 
