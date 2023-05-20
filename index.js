@@ -5,7 +5,6 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
 
-
 // middleware
 app.use(cors());
 app.use(express.json());
@@ -29,7 +28,7 @@ async function run() {
     const toysCollection = client.db("toysDB").collection("toys");
     const MyToysCollection = client.db("toysDB").collection("MyToys");
 
-  // For Category Section
+    // For Category Section
     app.get("/toys", async (req, res) => {
       const cursor = toysCollection.find();
       const result = await cursor.toArray();
@@ -43,71 +42,64 @@ async function run() {
       res.send(result);
     });
 
-
     // For My Toys
 
-    app.get('/MyToys', async (req, res) => {
+    app.get("/MyToys", async (req, res) => {
       const cursor = MyToysCollection.find();
       const result = await cursor.toArray();
       res.send(result);
-  })
+    });
 
-  app.get('/MyToys/:id', async(req, res) => {
+    app.get("/MyToys/:id", async (req, res) => {
       const id = req.params.id;
-      const query = {_id: new ObjectId(id)}
+      const query = { _id: new ObjectId(id) };
       const result = await MyToysCollection.findOne(query);
       res.send(result);
-  })
-
-  // to get user email
-
-  
-  app.get("/myJobs/:email", async (req, res) => {
-    console.log(req.params.id);
-    const jobs = await jobsCollection
-      .find({
-        postedBy: req.params.email,
-      })
-      .toArray();
-    res.send(jobs);
-  });
+    });
 
 
- ///////// 
+    app.post("/MyToys", async (req, res) => {
+      const newToy = req.body;
+      console.log(newToy);
+      const result = await MyToysCollection.insertOne(newToy);
+      res.send(result);
+    });
+
+    app.put("/MyToys/:id", async (req, res) => {
+      const id = req.params.id;
+      const body = req.body;
+      console.log(body);
+      const filter = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          quantity: body.quantity,
+          price: body.price,
+          description: body.description,
+        },
+      };
+      const result = await MyToysCollection.updateOne(filter, updateDoc);
+      res.send(result);
+    });
+
+    app.delete("/MyToys/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await MyToysCollection.deleteOne(query);
+      res.send(result);
+    });
+
     
- app.post('/MyToys', async (req, res) => {
-            const newToy = req.body;
-            console.log(newToy);
-            const result = await MyToysCollection.insertOne(newToy);
-            res.send(result);
-        })
-    
-        
-        app.put("/MyToys/:id", async (req, res) => {
-          const id = req.params.id;
-          const body = req.body;
-          console.log(body);
-          const filter = { _id: new ObjectId(id) };
-          const updateDoc = {
-            $set: {
-              quantity: body.quantity,
-              price: body.price,
-              description: body.description,
-            },
-          };
-          const result = await MyToysCollection.updateOne(filter, updateDoc);
-          res.send(result);
-        });
+    // to get user email
+    app.get("/myToys/:email", async (req, res) => {
+      console.log(req.params.email);
+      const toys = await MyToysCollection.find({
+        sellerEmail: req.params.email,
+      }).toArray();
+      res.send(toys);
+    });
 
-        app.delete('/MyToys/:id', async (req, res) => {
-          const id = req.params.id;
-          const query = { _id: new ObjectId(id) }
-          const result = await MyToysCollection.deleteOne(query);
-          res.send(result);
-      })
+    /////////
 
-   
-    
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
