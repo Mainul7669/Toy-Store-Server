@@ -59,6 +59,21 @@ async function run() {
       res.send(result);
   })
 
+  // to get user email
+
+  
+  app.get("/myJobs/:email", async (req, res) => {
+    console.log(req.params.id);
+    const jobs = await jobsCollection
+      .find({
+        postedBy: req.params.email,
+      })
+      .toArray();
+    res.send(jobs);
+  });
+
+
+ ///////// 
     
  app.post('/MyToys', async (req, res) => {
             const newToy = req.body;
