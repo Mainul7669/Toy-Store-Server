@@ -74,6 +74,7 @@ async function run() {
       res.send(result);
     });
 
+
     app.put("/MyToys/:id", async (req, res) => {
       const id = req.params.id;
       const body = req.body;
@@ -87,8 +88,17 @@ async function run() {
         },
       };
       const result = await MyToysCollection.updateOne(filter, updateDoc);
-      res.send(result);
+      
+      if (result.modifiedCount === 1) {
+        // Fetch and return the updated toy data
+        const updatedToy = await MyToysCollection.findOne(filter);
+        res.send(updatedToy);
+      } else {
+        res.status(404).send("Toy not found");
+      }
     });
+    
+
 
     app.delete("/MyToys/:id", async (req, res) => {
       const id = req.params.id;
